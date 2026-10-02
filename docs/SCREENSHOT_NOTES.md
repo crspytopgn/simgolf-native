@@ -1,0 +1,85 @@
+# Facts read from screenshots of the original game
+
+Supplied by the project owner. Only things clearly legible are recorded; the course report numbers were too small to read reliably and are left out.
+
+## Currency and clock
+- Money is shown with the section sign (the Sims "simoleon" symbol), for example §100,000, not a dollar sign.
+- The game has a calendar with months and years. Seen: "April 2001" on a new course and "June 2011" on a mature one. The "two years to get back into the black" warning is therefore calendar years. How many real seconds a game month lasts is not known yet.
+
+## Main menu (five buttons)
+Continue Saved Game, Start New Game (Standard), Sandbox Mode, Select A Theme, Play a Championship.
+
+## Choosing a property ("Where will you build your golf course?")
+- The player starts with §100,000 and the property price comes out of it: affordable ones are yellow, ones that cost too much are grey, bought ones red. So the cash left to build with is 100,000 minus the price (this corrects the manual-derived note that cash "depends on the property").
+- Sixteen properties, with size and price:
+
+| Property | Acres | Price | Bonus |
+|---|---|---|---|
+| Northeast | 50 | §50,000 | Civil War Battlefield |
+| San Diego | 50 | §60,000 | Dolphins |
+| Oahu | 50 | §70,000 | Japanese Garden |
+| Hawaii | 70 | §80,000 | Scenic Waterfall |
+| Wales | 80 | §200,000 | Stonehenge |
+| Florida | 90 | §150,000 | Free Pro Shop |
+| Las Vegas | 100 | §120,000 | Fun, Fun, Fun |
+| Monterey | 110 | §250,000 | Scenic Cypress |
+| Spain | 120 | §300,000 | Scenic Vineyards |
+| Scotland | 130 | §400,000 | Free Castle |
+| Carolina | 160 | §500,000 | Free Putting Green |
+| Ireland | 170 | §600,000 | Leprechauns |
+| Nova Scotia | 170 | §800,000 | Scenic Lighthouse |
+| Rocky Mtns. | 180 | §700,000 | Free Hotel |
+| Jamaica | 200 | §900,000 | Scenic Statues |
+| Phoenix | 210 | §1,000,000 | Free Spa |
+
+Only Northeast, San Diego, Oahu and Hawaii are affordable at the standard start. There is a world map with pins, and a back and a refresh button.
+
+## Player skills screen
+- Ten skills in this order: Power Hitter, Long Driver, Accurate Driver, Accurate Irons, Accurate Putter, Draw Shot (R to L), Fade Shot (L to R), High Backspin Shot, Recovery Skills, Luck.
+- Each skill point shows as +10 percent (a character with 5, 4 and 1 points shows +50%, +40%, +10%). This confirms the manual's "10 percent per point". Points are added before play and more are won with trophies ("Add N skill points").
+
+## Main screen
+- Top left: a club badge with the course name and the date, a row of star rating dots, and a rank such as "1st" with a multiplier.
+- Top right, three counters: money, a smiley (fun, which can go above 100, e.g. 112.0) and a third value shown with two decimals (possibly the skill rating, unconfirmed).
+- Bottom: round buttons on the left (view controls, pause, info, settings), a golfer-face button, and a purple tray of terrain tools. Terrain brush shapes (a curved fairway and others) sit in the tray.
+- A course has grey paths, retaining walls, rivers with bridges, buildings, carts and golfers.
+
+## Information menu entries
+Repeat Last Message, Course Report, Player Comments, Routing Map, Histogram, SGA Evaluation, Financial Report, Membership Roster, Professional Accomplishments, World Map, Best Scores, Top 10 Designers.
+
+## Course report (table, one row per hole plus a total)
+Columns: Yds, Par, Avg (average strokes), Time (minutes per hole), Fun (a percentage that can exceed 100), +Len, +Acc, +Img (three decimal scores, positive or negative, that decide the hole type), Type (for example Breather), Avg.Fee, Revenue, Profit (red when negative). Markers for Top 100 hole, Top 18 hole and Scenic Hole.
+
+## Second batch: hole stats, shot analysis, membership
+
+### Hole Stats dialog (click a hole)
+- Title "HOLE STATS for N <hole name> (N)". Holes have names.
+- Rows: Fun Factor (a percentage, here more than 100, with a word label such as "outstanding"), Length, Accuracy and Imagination (signed decimals, each with a word label), Yards, Avg. Drive (yards), Par, Stroke average.
+- "Average shots on this hole": a histogram of how many golfers took 3, 4, 5, 6, 7 and 8 or more strokes.
+- Comments: a list of golfer remarks, each with the fun percentage it carried (green when high, red when low), for example about a fountain, the variety of the course, a ball under a palm tree, a scenic bridge.
+- The calendar runs far ahead in a long game (a date of May 2252 was seen).
+
+### Shot Analysis ("Golfers playing hole N...")
+- It draws sample shot paths on the hole and lists three comparisons: golfers with all skills, then "no Imagination skill", "no Accuracy skill" and "no Length skill", each with a distance in yards (seen: -4, -41 and 8).
+- This strongly suggests how the +Len, +Acc and +Img scores are measured: by simulating golfers with and without each skill and seeing how much worse the shots get. A hole demands accuracy if golfers lacking it do much worse, and so on. This is far better than the hazard counting placeholder in sg/holes.h and is the plan for replacing it.
+
+### HUD counters (cross checked with the exe's text)
+- The exe's state dump prints "SkillRating=%.2f" and "FunRating=%d". The three HUD counters are therefore: money, then fun rating as a whole number (seen 1035, 1044, 2575), then skill rating with two decimals (seen 6.24, 16.07, 25.11, 79.21). So the club's fun rating is a whole number that can reach thousands; the per hole Fun Factor is a separate percentage. This corrects the 0 to 100 "fun" in sg/economy.h.
+- The top left badge shows the course name, the month and year, a row of dots (the star rating) and, in one shot, a coloured bar.
+
+### Membership
+- A popup with a golfer's face announces upgrades, for example a golfer moving to Silver membership, that Silver members pay well for home sites, and that he will bring a friend. It ends with the current counts: Silver members, Basic members and Visitors (seen 15, 15 and 17). Tiers seen: Basic and Silver (the exe also has Gold and Platinum).
+- Golfers show speech bubbles ("Birdie. This hole is too easy.", "really improved my putting.", "There's nothing like a good snack.") and name labels; staff are labelled with their job (Groundskeeper, Club Pro).
+
+### Editing tray (Desert theme)
+Tees, Green, Sand trap, Desert, Pot bunker, Brush, Water, Fairway, Firm fairway, Rough, Waste bunker, Ravine, Rocks, then trees and plants (Cactus, Joshua tree, Palm tree). Another tray shows terrain shaping tools (raise and lower hills). A price of §500 appeared near the tray, probably for the selected item; unconfirmed.
+
+## Third batch: sandbox property screen, fees, tournaments, celebrities
+
+- In Sandbox Mode the property screen shows "Unlimited §" in place of the money box and every property is available; the cards then show only the name and bonus (no acres or price line).
+- Theme per property, now clearly visible from the card icons: Parkland (tree): Monterey, San Diego, Rocky Mtns., Northeast, Carolina. Links (castle): Ireland, Scotland, Wales, Nova Scotia. Desert (desert building): Las Vegas, Phoenix, Spain. Tropical (dolphin): Hawaii, Oahu, Florida, Jamaica. (sg/properties.h follows this.) The card icons are in the disc's Interface/Choose*Buttons.pcx files, the title art in TitleBASE/TitleUnSel/TitleMO.pcx, and report backgrounds in Interface/infoscreens.
+- "Select A Theme" on the title screen chooses a theme pack, not a terrain style. The Themes folder on the disc holds Standard, Firaxis, More_Stories, The_Sims and Championship.
+- Fees: two Course Report screenshots show average fees of roughly 875 to 1,100 per hole and per hole revenues of 4,000 to 66,600, with profit in red or green. So a green fee is on the order of a thousand, not the 40 that was a placeholder here. The default is now 1000 (still a placeholder for the rule), with upkeep and wages scaled to match.
+- Course report hole rows carry names (Alexandria, Dorothy, Elizabeth...) as well as numbers, show types such as Breather, Heroic, Freeway and Challenge, and mark Top 100, Top 18 and Scenic holes.
+- Events seen as popups: the SGA offers to hold a named tournament at your course with a top prize (here §110,000) and a button in a panel to begin it; a celebrity buys a vacation home on the course and golfers enjoy seeing celebrities. The badge top left can also show star and heart counts (for example x20, x17, x14, x17).
+- Staff walk the course with name labels (for example "Joe Groundskeeper"), and an airship flies over the course in one shot.

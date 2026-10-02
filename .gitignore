@@ -1,0 +1,16 @@
+# Never commit game data or build output. The game files stay on your own disk and are read at run time.
+build/
+game/
+*.png
+*.sgc
+*.sve
+*.exe
+*.dll
+*.pcx
+*.flc
+*.wav
+*.bik
+*.ttf
+*.TTF
+spec/
+.DS_Store
