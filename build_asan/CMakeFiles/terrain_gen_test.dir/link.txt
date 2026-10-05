@@ -1,0 +1,1 @@
+/usr/bin/c++ -fsanitize=address,undefined -O1 -g -g CMakeFiles/terrain_gen_test.dir/tests/terrain_gen_test.cpp.o -o terrain_gen_test  libsgassets.a /usr/lib/x86_64-linux-gnu/libz.so 

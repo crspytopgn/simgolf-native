@@ -1,0 +1,1 @@
+/usr/bin/c++ -fsanitize=address,undefined -O1 -g -g CMakeFiles/sgaudiotest.dir/tools/audiotest.cpp.o -o sgaudiotest  libsgaudio.a /usr/lib/x86_64-linux-gnu/libSDL2.so libsgassets.a /usr/lib/x86_64-linux-gnu/libz.so 
