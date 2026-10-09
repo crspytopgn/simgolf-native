@@ -1,0 +1,1 @@
+/usr/bin/c++ -fsanitize=address,undefined -O1 -g -g CMakeFiles/homes_test.dir/tests/homes_test.cpp.o -o homes_test  libsgassets.a /usr/lib/x86_64-linux-gnu/libz.so 

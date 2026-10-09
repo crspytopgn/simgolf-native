@@ -1,0 +1,2 @@
+/usr/bin/ar qc libsgaudio.a CMakeFiles/sgaudio.dir/src/audio.cpp.o
+/usr/bin/ranlib libsgaudio.a

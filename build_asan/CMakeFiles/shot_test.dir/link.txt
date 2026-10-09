@@ -1,0 +1,1 @@
+/usr/bin/c++ -fsanitize=address,undefined -O1 -g -g CMakeFiles/shot_test.dir/tests/shot_test.cpp.o -o shot_test  libsgassets.a /usr/lib/x86_64-linux-gnu/libz.so 
